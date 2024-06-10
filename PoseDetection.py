@@ -9,7 +9,7 @@ pose = mp_pose.Pose()
 class poseDetector():
     def __init__(self, static_image_mode=False, model_complexity=1, smooth_landmarks=True,
                  enable_segmentation=False, smooth_segmentation=True,
-                 min_detection_confidence=0.5, min_tracking_confidence=0.5):
+                 min_detection_confidence=0.7, min_tracking_confidence=0.7):
         self.static_image_mode = static_image_mode
         self.model_complexity = model_complexity
         self.smooth_landmarks = smooth_landmarks

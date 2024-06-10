@@ -4,7 +4,7 @@ import time
 
 class FaceMeshDetector:
 
-    def __init__(self, mode=False, max_faces=2, refine_landmarks=False, min_detection_confidence=0.5, min_tracking_confidence=0.5):
+    def __init__(self, mode=False, max_faces=2, refine_landmarks=False, min_detection_confidence=0.7, min_tracking_confidence=0.7):
         self.mode = mode
         self.max_faces = max_faces
         self.refine_landmarks = refine_landmarks

@@ -7,8 +7,8 @@ class handDetector():
                  mode=False,
                  max_hands=2,
                  model_complexity=1,
-                 min_detection_confidence=0.7,
-                 min_tracking_confidence=0.7):
+                 min_detection_confidence=0.9,
+                 min_tracking_confidence=0.9):
         self.mode = mode
         self.max_hands = max_hands
         self.model_complexity = model_complexity
@@ -47,7 +47,7 @@ class handDetector():
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 landmarks.append([id, cx, cy])
                 if draw:
-                    cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (cx, cy), 5, (0, 0, 255), cv2.FILLED)
         
         return landmarks
 
@@ -62,7 +62,7 @@ def main():
             break
         
         img = detector.findHands(img, flip=True)
-        landmarks = detector.findPosition(img, draw=False)
+        landmarks = detector.findPosition(img, draw=True)
         print(landmarks)
 
         # Calculate fps
@@ -75,9 +75,6 @@ def main():
         
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
-
-    cap.release()
-    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
